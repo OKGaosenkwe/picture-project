@@ -1,23 +1,17 @@
-import * as firebase from 'firebase';
-import 'firebase/storage';
-import 'firebase/firestore';
+import firebase from "firebase";
 
 // Your web app's Firebase configuration
-var firebaseConfig = {
-    apiKey: "AIzaSyAN38D1AV6tK9FO_KEy3jPPbcB0GkgTAI8",
-    authDomain: "picture-project-c45f4.firebaseapp.com",
-    projectId: "picture-project-c45f4",
-    storageBucket: "picture-project-c45f4.appspot.com",
-    messagingSenderId: "998843603389",
-    appId: "1:998843603389:web:381bd3c783e4748d7d9ad4",
-    measurementId: "G-1ZKGYZV76G"
-  };
+const firebaseConfig = {
+  apiKey: "AIzaSyCBAB3FY_jCUS72YL-_P38sH2D02M-PX6E",
+  authDomain: "picture-project-fdbfe.firebaseapp.com",
+  projectId: "picture-project-fdbfe",
+  storageBucket: "picture-project-fdbfe.appspot.com",
+  messagingSenderId: "974867403948",
+  appId: "1:974867403948:web:361d895bc7f44a0751bb09"
+};
 // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
+const firebaseApp = firebase.initializeApp(firebaseConfig);
 
-  //Initializing
-  const projectStorage = firebase.storage();
-  const projectFirestore = firebase.firestore();
-  const timestamp = firebase.firestore.FieldValue.serverTimestamp;
-
-  export { projectStorage, projectFirestore, timestamp};
+export const auth = firebaseApp.auth();
+export const storage = firebaseApp.storage();
+export const db = firebaseApp.firestore();
