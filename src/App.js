@@ -1,20 +1,20 @@
-import React, { useState } from 'react';
-import Title from './Comps/Title';
-import UploadForm from './Comps/UploadForm';
-import ImageGrid from './Comps/ImageGrid';
-import Modal from './Comps/Modal';
+import { Switch, Route } from "react-router-dom";
+import Home from "./components/Home";
+import Login from "./components/Login";
+import Signup from "./components/Signup";
+import SetProfile from "./components/SetProfile";
+import { PrivateRoute } from "./PrivateRoute";
+import "./assets/css/styles.css";
 
-function App() {
-  const [selectedImg, setSelectedImg] = useState(null);
-  
+export default function App() {
   return (
     <div className="App">
-      <Title/>
-      <UploadForm/>
-      <ImageGrid setSelectedImg={setSelectedImg} />
-      { selectedImg && (
-        <Modal selectedImg={selectedImg} setSelectedImg={setSelectedImg} />
-      )}
+      <Switch>
+        <Route path="/" component={Login} exact />
+        <Route path="/signup" component={Signup} />
+        <PrivateRoute path="/home" component={Home} />
+        <PrivateRoute path="/set-profile" component={SetProfile} />
+      </Switch>
     </div>
   );
 }
